@@ -264,8 +264,8 @@ export class LDSSBackend {
         createdAt: row.created_at,
         backendProvider: row.backend_provider,
         backendStatus: row.backend_status,
-        activeUsers: row.active_users,
-        totalStorage: this.formatBytes(row.total_storage_bytes)
+        activeUsers: row.active_users || 0,
+        totalStorage: this.formatBytes(row.total_storage_bytes || 0)
       }))
     };
   }
@@ -329,8 +329,8 @@ export class LDSSBackend {
         backendProvider: project.backend_provider,
         backendStatus: project.backend_status,
         backendConfig: project.backend_config ? JSON.parse(project.backend_config) : null,
-        activeUsers: project.active_users,
-        totalStorage: this.formatBytes(project.total_storage_bytes)
+        activeUsers: project.active_users || 0,
+        totalStorage: this.formatBytes(project.total_storage_bytes || 0)
       }
     };
   }
